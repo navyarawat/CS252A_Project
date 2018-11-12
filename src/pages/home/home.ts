@@ -35,7 +35,7 @@ export class HomePage {
         "num" : 4
       }, 
       {
-        "text" : "aaa",
+        "text" : "I am the Karma and I am Indra of gods I am hell, jo b hu m hi hu.",
         "chap" : 3,
         "num" : 14
       } ,
