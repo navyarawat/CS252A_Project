@@ -13,7 +13,7 @@ import { BgServiceProvider } from '../../providers/bg-service/bg-service';
 export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
   public result: any;
-  public verses: String;
+  public verses: any;
   constructor(public bgService: BgServiceProvider, private formBuilder: FormBuilder, public platform: Platform, public navCtrl: NavController) {
     this.verses = "Wait for it"    
   }
@@ -21,10 +21,32 @@ export class HomePage {
   showVerses() {
   this.platform.ready().then(() => {
   console.log("LOG1");
-  this.bgService.load().then(data =>{
-    console.log("LOG2");
-    this.verses = data;
-  });
+  // this.bgService.load().then(data =>{
+  //   console.log("LOG2");
+  //   this.verses = JSON.parse(data);
+  //   console.log(data);
+  // });
+  let resp = {
+    "n" : 3,
+    "slokas" : [
+      {
+        "text" : "aa",
+        "chap" : 1,
+        "num" : 4
+      }, 
+      {
+        "text" : "aaa",
+        "chap" : 3,
+        "num" : 14
+      } ,
+      {
+        "text" : "aa",
+        "chap" : 11,
+        "num" : 12
+      }  
+    ]
+    };
+    this.verses = resp ;
   });
   }
 
