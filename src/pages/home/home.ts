@@ -23,17 +23,18 @@ export class HomePage {
 	showVerses() {
         // document.getElementById("loader").style.display = 'block';
 	//this.loaderCtrl = true ;
+		let qdata = {};
 		this.platform.ready().then(() => {
 			console.log("LOG1");
-            
-			// console.log("qry : ", this.query);
-			// this.query = "";
-			// this.bgService.load(this.query).then(data =>{
-			//   console.log("LOG2");
-			//   this.verses = JSON.parse(data);
-			//   console.log(data);
-			// });
-			let qdata = { "shloka0": "Shining through the functions of all the organs, (yet) devoid of all the organs; unattached, and verily the supporter of all; without quality, and the perceiver of qualities;", "shloka1": "O son of Prtha, by meditating with a mind which is engaged in the yoga of practice and which does not stray away to anything else, one reaches the supreme Person existing in the effulgent region.", "shloka2": "On the other hand, know tamas, which deludes all embodied beings, to be born of ignorance. O scion of the Bharata dynasty, that binds through inadvertence, laziness and sleep.", "shloka3": "The Blessed Lord said: O unblemished one, two kinds of steadfastness in this world were spoken of by Me in the days of yore-through the Yoga of Knowledge for the men of realization; through the Yoga of Action for the yogis.", "shloka4": "When the illumination that is knowledge radiates in this body through all the doors (of the senses), then one should know that sattva has increased greatly.", "success": 1 };
+
+			console.log("qry : ", this.query);
+			this.query = "";
+			this.bgService.load(this.query).then(data =>{
+			  console.log("LOG2");
+			  this.verses = JSON.parse(qdata);
+			  console.log(qdata);
+			});
+			qdata = { "shloka0": "Shining through the functions of all the organs, (yet) devoid of all the organs; unattached, and verily the supporter of all; without quality, and the perceiver of qualities;", "shloka1": "O son of Prtha, by meditating with a mind which is engaged in the yoga of practice and which does not stray away to anything else, one reaches the supreme Person existing in the effulgent region.", "shloka2": "On the other hand, know tamas, which deludes all embodied beings, to be born of ignorance. O scion of the Bharata dynasty, that binds through inadvertence, laziness and sleep.", "shloka3": "The Blessed Lord said: O unblemished one, two kinds of steadfastness in this world were spoken of by Me in the days of yore-through the Yoga of Knowledge for the men of realization; through the Yoga of Action for the yogis.", "shloka4": "When the illumination that is knowledge radiates in this body through all the doors (of the senses), then one should know that sattva has increased greatly.", "success": 1 };
             let resp = [
                 {
                     "text" : qdata.shloka0,
