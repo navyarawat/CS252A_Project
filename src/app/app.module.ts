@@ -10,6 +10,7 @@ import { Page1Page } from '../pages/page1/page1';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 import { BgServiceProvider } from '../providers/bg-service/bg-service';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -19,7 +20,8 @@ import { BgServiceProvider } from '../providers/bg-service/bg-service';
   imports: [
     HttpClientModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

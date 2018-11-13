@@ -7,7 +7,23 @@
 </ion-header>
 
 <ion-content>
-  <h1> FAV SLOKAS</h1>
+    <ion-card *ngFor="let verse of verses;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">
+      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: 'Montserrat', sans-serif;font-family: 'KoHo', sans-serif;font-family: 'Slabo 27px', serif;">
+        {{verse.num}}
+
+
+        <button ion-button (click)="deleteFav( verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(255, 255, 255);box-shadow: none;">
+          <ion-icon name="md-trash"></ion-icon>
+        </button>
+
+      </ion-card-header>
+      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'Montserrat', sans-serif;font-family: 'KoHo', sans-serif;">
+        {{verse.text}} <br>
+        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: 'Roboto Slab', serif;">Chapter : {{verse.chap}} </span>
+
+      </ion-card-content>
+    </ion-card>
+
 </ion-content>
 
 <!-- <ion-footer>
