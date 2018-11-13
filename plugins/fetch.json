@@ -67,5 +67,13 @@
       "API_KEY_FOR_ANDROID": "AIzaSyCQzjbUpYWah59uh3gRTZh10W0tDf9NvB8",
       "API_KEY_FOR_IOS": "AIzaSyCQzjbUpYWah59uh3gRTZh10W0tDf9NvB8"
     }
+  },
+  "cordova-sqlite-storage": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-sqlite-storage"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

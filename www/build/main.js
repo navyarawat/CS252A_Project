@@ -156,43 +156,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = /** @class */ (function () {
+    // public query: any;
     function HomePage(bgService, formBuilder, platform, navCtrl) {
         this.bgService = bgService;
         this.formBuilder = formBuilder;
         this.platform = platform;
         this.navCtrl = navCtrl;
-        this.verses = "Wait for it";
+        // this.verses = "Wait for it"
+        this.loaderCtrl = false;
     }
     HomePage.prototype.showVerses = function () {
         var _this = this;
+        // document.getElementById("loader").style.display = 'block';
+        this.loaderCtrl = true;
         this.platform.ready().then(function () {
             console.log("LOG1");
-            // this.bgService.load().then(data =>{
+            // console.log("qry : ", this.query);
+            // this.query = "";
+            // this.bgService.load(this.query).then(data =>{
             //   console.log("LOG2");
             //   this.verses = JSON.parse(data);
             //   console.log(data);
             // });
-            var resp = {
-                "n": 3,
-                "slokas": [
-                    {
-                        "text": "aa",
-                        "chap": 1,
-                        "num": 4
-                    },
-                    {
-                        "text": "aaa",
-                        "chap": 3,
-                        "num": 14
-                    },
-                    {
-                        "text": "aa",
-                        "chap": 11,
-                        "num": 12
-                    }
-                ]
-            };
+            var qdata = { "shloka0": "Shining through the functions of all the organs, (yet) devoid of all the organs; unattached, and verily the supporter of all; without quality, and the perceiver of qualities;", "shloka1": "O son of Prtha, by meditating with a mind which is engaged in the yoga of practice and which does not stray away to anything else, one reaches the supreme Person existing in the effulgent region.", "shloka2": "On the other hand, know tamas, which deludes all embodied beings, to be born of ignorance. O scion of the Bharata dynasty, that binds through inadvertence, laziness and sleep.", "shloka3": "The Blessed Lord said: O unblemished one, two kinds of steadfastness in this world were spoken of by Me in the days of yore-through the Yoga of Knowledge for the men of realization; through the Yoga of Action for the yogis.", "shloka4": "When the illumination that is knowledge radiates in this body through all the doors (of the senses), then one should know that sattva has increased greatly.", "success": 1 };
+            var resp = [
+                {
+                    "text": qdata.shloka0,
+                    "num": "Shloka - 1"
+                },
+                {
+                    "text": qdata.shloka1,
+                    "num": "Shloka - 2"
+                },
+                {
+                    "text": qdata.shloka2,
+                    "num": "Shloka - 3"
+                },
+                {
+                    "text": qdata.shloka3,
+                    "num": "Shloka - 4"
+                },
+                {
+                    "text": qdata.shloka4,
+                    "num": "Shloka - 5"
+                }
+            ];
+            _this.loaderCtrl = false;
             _this.verses = resp;
+            // console.log(this.verses.shloka0);
         });
     };
     HomePage.prototype.currLocation = function () {
@@ -200,16 +211,17 @@ var HomePage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], HomePage.prototype, "mapElement", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar >\n    <ion-title text-center style="font-family: \'Montserrat\', sans-serif; font-family: \'Roboto Slab\', serif;">\n      Bhagavad Gita to the Rescue\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <br> <br>\n  <ion-img text-center width="100%" height="50%" src="../../assets/imgs/gita.jpg"></ion-img>\n  <br> <br>\n  <form (ngSubmit)="showVerses()">\n    <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" style="" ></ion-input>\n    <br> <br>\n    <ion-grid>\n      <ion-row>\n        <ion-col col-4 >\n        </ion-col>\n          <ion-col>\n            <button text-center ion-button type="submit">Help me!</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n  <br> \n  <div #map id="result" style="height:80%">\n    <!-- {{verses.slokas}} -->\n    \n    <!-- <li *ngFor="let verse of verses.slokas;index as i"> -->\n    <!--   aa -->\n    <!-- </li> -->\n    <ion-card *ngFor="let verse of verses.slokas;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">\n      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: \'Montserrat\', sans-serif;font-family: \'KoHo\', sans-serif;font-family: \'Slabo 27px\', serif;">\n        Chapter - {{verse.chap}}, Verse - {{verse.num}}\n      </ion-card-header>\n      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: \'Montserrat\', sans-serif;font-family: \'KoHo\', sans-serif;">\n        {{verse.text}}\n      </ion-card-content>\n    </ion-card>\n  </div>\n</ion-content>\n\n'/*ion-inline-end:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/'<ion-header>\n\n  <ion-navbar >\n    <ion-title text-center style="font-family: \'Montserrat\', sans-serif; font-family: \'Roboto Slab\', serif;">\n      Bhagavad Gita to the Rescue\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content>\n  <br> <br>\n  <ion-img text-center width="100%" height="50%" src="../../assets/imgs/gita.jpg"></ion-img>\n  <br> <br>\n  <form (ngSubmit)="showVerses()">\n    <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques"></ion-input>\n    <br> <br>\n    <ion-grid>\n      <ion-row>\n        <ion-col col-4 >\n        </ion-col>\n          <ion-col>\n            <button text-center ion-button type="submit">Help me!</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n  <br>\n  <div #map id="result" style="height:80%" >\n\n    <ion-card id = "loader" *ngIf="loaderCtrl">\n        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>\n        <ion-card-content >\n        	<ion-card-title>\n\n        	</ion-card-title>\n        	<p text-center>\n                Loading\n        		<!-- The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. -->\n        	</p>\n        </ion-card-content>\n    </ion-card>\n\n\n    <ion-card *ngFor="let verse of verses;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">\n      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: \'Montserrat\', sans-serif;font-family: \'KoHo\', sans-serif;font-family: \'Slabo 27px\', serif;">\n        {{verse.num}}\n      </ion-card-header>\n      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: \'Montserrat\', sans-serif;font-family: \'KoHo\', sans-serif;">\n        {{verse.text}}\n      </ion-card-content>\n    </ion-card>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* NavController */]) === "function" && _e || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -245,8 +257,9 @@ var BgServiceProvider = /** @class */ (function () {
         this.http = http;
         console.log('Hello BgServiceProvider Provider');
     }
-    BgServiceProvider.prototype.load = function () {
+    BgServiceProvider.prototype.load = function (query) {
         var _this = this;
+        console.log(query);
         if (this.data) {
             // already loaded data
             return Promise.resolve(this.data);
@@ -256,7 +269,7 @@ var BgServiceProvider = /** @class */ (function () {
             // We're using Angular HTTP provider to request the data,
             // then on the response, it'll map the JSON data to a parsed JS object.
             // Next, we process the data and resolve the promise with the new data.
-            _this.http.get('http://localhost:5000')
+            _this.http.get('http://35.235.122.125/api?query=' + query)
                 .subscribe(function (data) {
                 // we've got back the raw data, now generate the core schedule data
                 // and save the data for later reference
