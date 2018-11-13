@@ -93,7 +93,7 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCQzjbUpYWah59uh3gRTZh10W0tDf9NvB8" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyCQzjbUpYWah59uh3gRTZh10W0tDf9NvB8" />
     </plugin>
+    <plugin name="cordova-sqlite-storage" spec="2.5.1" />
     <engine name="browser" spec="~5.0.4" />
     <engine name="android" spec="~7.1.1" />
-    <plugin name="cordova-sqlite-storage" spec="2.5.1" />
 </widget>

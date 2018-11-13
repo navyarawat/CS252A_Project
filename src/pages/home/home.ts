@@ -17,12 +17,12 @@ export class HomePage {
 	// public query: any;
 	constructor(public bgService: BgServiceProvider, private formBuilder: FormBuilder, public platform: Platform, public navCtrl: NavController) {
 		// this.verses = "Wait for it"
-        this.loaderCtrl = false ;
+		//        this.loaderCtrl = false ;
 	}
 
 	showVerses() {
         // document.getElementById("loader").style.display = 'block';
-        this.loaderCtrl = true ;
+	//this.loaderCtrl = true ;
 		this.platform.ready().then(() => {
 			console.log("LOG1");
             
@@ -56,7 +56,7 @@ export class HomePage {
                     "num" : "Shloka - 5"
                 }
             ];
-            this.loaderCtrl = false ;
+	    //this.loaderCtrl = false ;
 			this.verses = resp;
             // console.log(this.verses.shloka0);
 		});
