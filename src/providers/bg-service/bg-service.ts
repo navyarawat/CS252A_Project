@@ -25,11 +25,11 @@ export class BgServiceProvider {
     // We're using Angular HTTP provider to request the data,
     // then on the response, it'll map the JSON data to a parsed JS object.
     // Next, we process the data and resolve the promise with the new data.
-    this.http.get('http://35.235.122.125/api?query=' + query)
+    this.http.get('http://hss-iitk.herokuapp.com/api/cs252?query=' + query)
       .subscribe(data => {
         // we've got back the raw data, now generate the core schedule data
         // and save the data for later reference
-        this.data = JSON.stringify(data);
+        this.data = data;
         resolve(this.data);
       });
   });
