@@ -1,5 +1,4 @@
 <ion-header>
-
   <ion-navbar >
     <ion-title text-center style="font-family: 'Montserrat', sans-serif; font-family: 'Roboto Slab', serif;">
       Bhagavad Gita to the Rescue
@@ -12,10 +11,9 @@
 <ion-content>
   <br> <br>
   <ion-img text-center width="100%" height="50%" src="../../assets/imgs/gita.jpg"></ion-img>
-  <br> <br>
+  <br> <br> <br> <br> <br>
   <form (ngSubmit)="showVerses()">
     <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques"></ion-input>
-    <br> <br>
     <ion-grid>
       <ion-row>
         <ion-col col-4 >
@@ -27,7 +25,6 @@
     </ion-grid>
   </form>
 
-  <br>
   <div #map id="result" style="height:80%" >
 
     <ion-card id = "loader" *ngIf="loaderCtrl">
@@ -57,11 +54,13 @@
 
 <ion-footer>
   <ion-toolbar>
-    <p>Ash, Misty, Brock</p>
+    <ion-title style="font-family: 'Montserrat', sans-serif; font-family: 'Roboto Slab', serif;">
+      Your Favourite Slokas
+    </ion-title>
     <ion-buttons end>
-      <button ion-button icon-end color="royal">
-        Send
-        <ion-icon name="send"></ion-icon>
+      <button ion-button (click)="openFavSlokas()" icon-end color="royal">
+        View!
+        <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>

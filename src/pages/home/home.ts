@@ -25,7 +25,7 @@ export class HomePage {
 	//this.loaderCtrl = true ;
 		this.platform.ready().then(() => {
 			console.log("LOG1");
-            
+
 			// console.log("qry : ", this.query);
 			// this.query = "";
 			// this.bgService.load(this.query).then(data =>{
@@ -62,8 +62,8 @@ export class HomePage {
 		});
 	}
 
-	currLocation() {
-		this.navCtrl.push(Page1Page);
-	}
+	openFavSlokas() {
+	this.navCtrl.push(Page1Page);
+    }
 
 }
