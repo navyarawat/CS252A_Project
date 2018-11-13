@@ -6,7 +6,7 @@ webpackJsonp([1],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page1Page; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(80);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -136,7 +136,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__page1_page1__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__ = __webpack_require__(201);
@@ -182,12 +182,12 @@ var HomePage = /** @class */ (function () {
             var y = document.getElementById("result").offsetTop;
             _this.content.scrollTo(0, y);
             if (!_this.query) {
-                var alert = _this.alertCtrl.create({
+                var alert_1 = _this.alertCtrl.create({
                     title: 'Alert',
                     subTitle: 'Please enter query',
                     buttons: ['Dismiss']
                 });
-                alert.present();
+                alert_1.present();
                 _this.loaderCtrl = false;
                 return;
             }
@@ -199,12 +199,12 @@ var HomePage = /** @class */ (function () {
             else if (_this.pquery == _this.query) {
                 // console.log("pq=q");
                 rflag = 0;
-                var alert = _this.alertCtrl.create({
+                var alert_2 = _this.alertCtrl.create({
                     title: 'Alert',
                     subTitle: 'Similar query',
                     buttons: ['Dismiss']
                 });
-                alert.present();
+                alert_2.present();
                 _this.loaderCtrl = false;
                 return;
             }
@@ -285,12 +285,12 @@ var HomePage = /** @class */ (function () {
         console.log("marker : ", verse);
         this.storage.get(vid).then(function (val) {
             if (val) {
-                var alert = _this.alertCtrl.create({
+                var alert_3 = _this.alertCtrl.create({
                     title: 'Alert',
                     subTitle: 'Selected Sloka already starred!',
                     buttons: ['Dismiss']
                 });
-                alert.present();
+                alert_3.present();
             }
             else {
                 _this.storage.set(vid, verse);
@@ -308,21 +308,20 @@ var HomePage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Content */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Content */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Content */])
     ], HomePage.prototype, "content", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_core__["t" /* ElementRef */])
     ], HomePage.prototype, "mapElement", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar >\n    <ion-title text-center style=" font-family: \'Roboto Slab\', serif;">\n      Bhagavad Gita to the Rescue\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content>\n  <br> <br>\n  <ion-img text-center width="100%" height="50%" src="../../assets/imgs/gita.jpg"></ion-img>\n  <br> <br> <br> <br> <br>\n  <form (ngSubmit)="showVerses()">\n    <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques" ></ion-input>\n    <ion-grid>\n      <ion-row>\n        <ion-col col-4 >\n        </ion-col>\n          <ion-col>\n            <button text-center ion-button type="submit">Help me!</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n  <div #map id="result" style="" >\n\n    <ion-card id = "loader" *ngIf="loaderCtrl" style="box-shadow: none;">\n        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>\n        <ion-card-content >\n        	<ion-card-title>\n\n        	</ion-card-title>\n        	<p text-center>\n                Loading\n        		<!-- The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. -->\n        	</p>\n        </ion-card-content>\n    </ion-card>\n\n\n    <ion-card *ngFor="let verse of verses;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">\n      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: \'Slabo 27px\', serif;">\n        {{verse.num}}\n\n        <!-- <ion-icon name="star"  (click)="markFav(verse.text)"></ion-icon> -->\n\n        <button ion-button id="{{verse.id}}" (click)="markFav(verse.text, verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(0,0,0,0.7);box-shadow: none;">\n          <ion-icon name="star"></ion-icon>\n        </button>\n\n      </ion-card-header>\n      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: \'KoHo\', sans-serif;">\n        {{verse.text}} <br>\n        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: \'Roboto Slab\', serif;">Chapter : {{verse.chap}} </span>\n      </ion-card-content>\n    </ion-card>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-title style="font-family: \'Montserrat\', sans-serif; font-family: \'Roboto Slab\', serif;">\n      Your Favourite Slokas\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="openFavSlokas()" icon-end color="royal">\n        View!\n        <ion-icon name="arrow-forward"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar >\n    <ion-title text-center style=" font-family: \'Roboto Slab\', serif;">\n      Bhagavad Gita to the Rescue\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n\n<ion-content>\n  <!-- <br> <br> -->\n  <ion-img text-center width="100%" height="auto%" src="../../assets/imgs/gita.jpg" style="margin-top:20px;"></ion-img>\n  <!-- <br> <br> <br> <br> <br> -->\n  <form (ngSubmit)="showVerses()" >\n    <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques" ></ion-input>\n    <ion-grid>\n      <ion-row>\n        <ion-col col-4 >\n        </ion-col>\n          <ion-col>\n            <button text-center ion-button type="submit">Help me!</button>\n          </ion-col>\n      </ion-row>\n    </ion-grid>\n  </form>\n\n  <div #map id="result" style="" >\n\n    <ion-card id = "loader" *ngIf="loaderCtrl" style="box-shadow: none;">\n        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>\n        <ion-card-content >\n        	<ion-card-title>\n\n        	</ion-card-title>\n        	<p text-center>\n                Loading\n        		<!-- The most popular industrial group ever, and largely responsible for bringing the music to a mass audience. -->\n        	</p>\n        </ion-card-content>\n    </ion-card>\n\n\n    <ion-card *ngFor="let verse of verses;index as i" style="border-width: 1px; border-color: #f2a241; border-style: solid;">\n      <ion-card-header  style="background-color:#f2a241; padding-top:4px; padding-bottom : 4px;font-family: \'Slabo 27px\', serif;">\n        {{verse.num}}\n\n        <!-- <ion-icon name="star"  (click)="markFav(verse.text)"></ion-icon> -->\n\n        <button ion-button id="{{verse.id}}" (click)="markFav(verse.text, verse.id)" icon-end  style="padding: 0; float:right; height:15px; background-color:#f2a241;color:rgba(0,0,0,0.7);box-shadow: none;">\n          <ion-icon name="star"></ion-icon>\n        </button>\n\n      </ion-card-header>\n      <ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: \'KoHo\', sans-serif;">\n        {{verse.text}} <br>\n        <span style="color : rgba(10,10,10,.8); font-weight : 600; font-family: \'Roboto Slab\', serif;">Chapter : {{verse.chap}} </span>\n      </ion-card-content>\n    </ion-card>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar>\n    <ion-title style="font-family: \'Montserrat\', sans-serif; font-family: \'Roboto Slab\', serif;">\n      Your Favourite Slokas\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button (click)="openFavSlokas()" icon-end color="royal">\n        View!\n        <ion-icon name="arrow-forward"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/abhi/Desktop/Acads/Sem_5/CS252/Project/CS252A_Project/src/pages/home/home.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */]]
         }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_5__providers_bg_service_bg_service__["a" /* BgServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -408,9 +407,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__ = __webpack_require__(273);
@@ -489,7 +488,7 @@ var AppModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(200);

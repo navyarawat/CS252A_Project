@@ -9,10 +9,10 @@
 
 
 <ion-content>
-  <br> <br>
-  <ion-img text-center width="100%" height="50%" src="../../assets/imgs/gita.jpg"></ion-img>
-  <br> <br> <br> <br> <br>
-  <form (ngSubmit)="showVerses()">
+  <!-- <br> <br> -->
+  <ion-img text-center width="100%" height="auto%" src="../../assets/imgs/gita.jpg" style="margin-top:20px;"></ion-img>
+  <!-- <br> <br> <br> <br> <br> -->
+  <form (ngSubmit)="showVerses()" >
     <ion-input width="100%" height="50%"placeholder="What do you feel?"type="text" id="long" [(ngModel)]="query" name="ques" ></ion-input>
     <ion-grid>
       <ion-row>
