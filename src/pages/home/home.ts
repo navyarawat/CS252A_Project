@@ -52,6 +52,7 @@ export class HomePage {
 		this.platform.ready().then(() => {
 			console.log("LOG1");
 			this.dayCtrl = false;
+			this.verses = [];
 			this.loaderCtrl = true ;
 
 			let y = document.getElementById("result").offsetTop;
@@ -113,34 +114,39 @@ export class HomePage {
 						"text": rdata["shloka0"].text,
 						"num": "Shloka - 1",
 						"id": 'sloka_' + rdata["shloka0"].verse_id,
-						"chap": rdata["shloka0"].chapter
+						"chap": rdata["shloka0"].chapter,
+						"vno" : rdata["shloka0"].verse_id.split("_")[1]
 					},
 					{
 						"text": rdata["shloka1"].text,
 						"num": "Shloka - 2",
 						"id": 'sloka_' + rdata["shloka1"].verse_id,
-						"chap": rdata["shloka1"].chapter
+						"chap": rdata["shloka1"].chapter,
+						"vno" : rdata["shloka1"].verse_id.split("_")[1]
 
 					},
 					{
 						"text": rdata["shloka2"].text,
 						"num": "Shloka - 3",
 						"id": 'sloka_' + rdata["shloka2"].verse_id,
-						"chap": rdata["shloka2"].chapter
+						"chap": rdata["shloka2"].chapter,
+						"vno" : rdata["shloka2"].verse_id.split("_")[1]
 
 					},
 					{
 						"text": rdata["shloka3"].text,
 						"num": "Shloka - 4",
 						"id": 'sloka_' + rdata["shloka3"].verse_id,
-						"chap": rdata["shloka3"].chapter
+						"chap": rdata["shloka3"].chapter,
+						"vno" : rdata["shloka3"].verse_id.split("_")[1]
 
 					},
 					{
 						"text": rdata["shloka4"].text,
 						"num": "Shloka - 5",
 						"id": 'sloka_' + rdata["shloka4"].verse_id,
-						"chap": rdata["shloka4"].chapter
+						"chap": rdata["shloka4"].chapter,
+						"vno" : rdata["shloka4"].verse_id.split("_")[1]
 
 					}
 				];

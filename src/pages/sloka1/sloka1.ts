@@ -34,7 +34,7 @@ export class slokaEach {
 				this.verse = {
 					"sanskritverse" : data["sanskrit-verse"],
 					"versetransliteration" : data["verse-transliteration"],
-					"verseword" : data["verse-word"],
+					"verseword" : data["verse-word"].split(";"),
 					"versetranslation" : data["verse-meaning"],
 					"id" : navParams.get('vid')
 				};
@@ -86,4 +86,6 @@ export class slokaEach {
 		});
 
 	}
+
+
 }

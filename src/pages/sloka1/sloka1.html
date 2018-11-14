@@ -43,7 +43,11 @@
 				Word Meanings
 			</ion-card-header>
 			<ion-card-content style="padding-top:6px;padding-bottom : 6px;font-family: 'KoHo', sans-serif;">
-				{{verse.verseword}}
+				<!-- {{verse.verseword}} -->
+                <ul>
+                <li *ngFor="let x of verse.verseword;index as i" >
+                    {{x}}
+                </li></ul>
 			</ion-card-content>
 		</ion-card>
 
@@ -75,7 +79,7 @@
 <ion-footer *ngIf="loaderCtrl == false">
   <ion-toolbar>
     <ion-title style="font-family: 'Montserrat', sans-serif; font-family: 'Roboto Slab', serif;">
-      Mark as Favourite !!
+      {{txtCtrl}}
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-end  (click)="markFav(verse.versetranslation, verse.id)" style="color:rgba(0,0,0,0.7);">
